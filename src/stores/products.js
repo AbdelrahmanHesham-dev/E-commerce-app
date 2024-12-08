@@ -6,6 +6,40 @@ export const productsModule = defineStore("productsModule", {
     flashDeals: [],
     newProducts: [],
     foods: [],
+    categories: [
+      {
+        title: "Laptops",
+        route: "laptops",
+      },
+      {
+        title: "Furniture",
+        route: "furniture",
+      },
+      {
+        title: "Sports Accessories",
+        route: "sports-accessories",
+      },
+      {
+        title: "Motorcycle",
+        route: "motorcycle",
+      },
+      {
+        title: "Vehicle",
+        route: "vehicle",
+      },
+      {
+        title: "Mobile Accessories",
+        route: "mobile-accessories",
+      },
+      {
+        title: "Mens Watches",
+        route: "mens-watches",
+      },
+      {
+        title: "Smart Phones",
+        route: "smartphones",
+      },
+    ],
   }),
   actions: {
     async getProducts() {

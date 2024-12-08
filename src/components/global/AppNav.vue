@@ -127,20 +127,21 @@
           </v-col>
         </v-row>
         <v-row class="mt-8">
-          <v-col cols="5">
+          <v-col cols="8">
             <ul
               class="links d-flex justify-space-between"
               style="list-style: none"
             >
-              <li>Theme Demo</li>
-              <li>Shop</li>
-              <li>Product</li>
-              <li>New In</li>
-              <li>Must Have</li>
-              <li>Collections</li>
+              <li v-for="category in categories" :key="category.title">
+                <router-link
+                  :to="{ name: 'home' }"
+                  style="color: wheat; text-decoration: none"
+                  >{{ category.title }}</router-link
+                >
+              </li>
             </ul>
           </v-col>
-          <v-col cols="7  " class="d-flex justify-end ga-10 pb-3">
+          <v-col cols="4" class="d-flex justify-end ga-10 pb-3">
             <div class="help d-flex ga-2">
               <svg
                 style="width: 20px"
@@ -195,12 +196,17 @@
 </template>
 
 <script>
+import { productsModule } from "@/stores/products";
+import { mapState } from "pinia";
 export default {
   inject: ["emitter"],
   methods: {
     openCart() {
       this.emitter.emit("toggleCart");
     },
+  },
+  computed: {
+    ...mapState(productsModule, ["categories"]),
   },
   data: () => ({
     selectedLang: [
