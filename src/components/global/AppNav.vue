@@ -4,7 +4,13 @@
       <v-container fluid>
         <v-row class="align-center pt-3">
           <v-col cols="3">
-            <img src="@/assets/images/logo.png" alt="Logo" />
+            <router-link :to="{ path: '/' }">
+              <img
+                src="@/assets/images/logo.png"
+                alt="Logo"
+                style="cursor: pointer"
+              />
+            </router-link>
           </v-col>
           <v-col cols="5">
             <div class="position-relative" style="width: 90%">
@@ -134,7 +140,10 @@
             >
               <li v-for="category in categories" :key="category.title">
                 <router-link
-                  :to="{ name: 'home' }"
+                  :to="{
+                    name: 'products_category',
+                    params: { category: category.route, title: category.title },
+                  }"
                   style="color: wheat; text-decoration: none"
                   >{{ category.title }}</router-link
                 >

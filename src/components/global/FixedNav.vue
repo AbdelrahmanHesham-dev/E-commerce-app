@@ -4,7 +4,9 @@
       <v-container>
         <v-row class="d-flex align-center">
           <v-col cols="5">
-            <img class="w-10" src="@/assets/images/logo.png" alt="Logo" />
+            <router-link :to="{ path: '/' }">
+              <img class="w-10" src="@/assets/images/logo.png" alt="Logo" />
+            </router-link>
           </v-col>
           <v-col cols="6">
             <div class="position-relative" style="width: 90%">
